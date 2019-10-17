@@ -1,0 +1,62 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: calibri;
+}
+
+table {
+	border-collapse: collapse;
+
+}
+
+table, th, tr, td {
+	/*border: 1px solid #000000;*/
+	margin: 0% auto;
+	margin-top: 5%;
+}
+
+td {
+	width: 60px;
+	height:	60px;
+	text-align: center;
+	vertical-align: center;
+}
+
+.btn-dgt, .btn-op, .btn-calc {
+	width: 58px;
+	height: 58px;
+	font-size: 18pt;
+	border: none;
+	cursor: pointer;
+	outline: 0;
+}
+
+#output {
+	display: flex;
+	width: 234px;
+	height: 60px;
+	border: 3px solid #8f9bcc;
+	justify-content: center;
+	align-items: center;
+	font-size: 25pt;
+	overflow: auto;
+}
+
+.btn-dgt {
+	font-weight: bold;
+	font-size: 20pt;
+	color: #ffffff;
+	background-color: #41466e;
+}
+
+.btn-op {
+	color: #ffffff;
+	background-color: #dba481;
+}
+
+.btn-calc {
+	font-weight: bold;
+	font-size: 30pt;
+	color: #ffffff;
+	background-color: #8f9bcc;
+}
