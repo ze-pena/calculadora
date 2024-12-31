@@ -27,13 +27,11 @@ const mathData = [[
 
 const themeData = [{
   theme: "light",
-  isVisible: false,
-  src: "./assets/icons/Sun.svg",
+  src: "./assets/icons/Moon.svg",
   alt: "Light theme icon"
 }, {
   theme: "dark",
-  isVisible: true,
-  src: "./assets/icons/Moon.svg",
+  src: "./assets/icons/Sun.svg",
   alt: "Dark theme icon"
 }]
 

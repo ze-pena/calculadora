@@ -2,17 +2,14 @@
 import { mathData, themeData } from "./data.js"
 
 // Eventos de tratamento de botões da calculadora
-import { handleClickButton } from "./buttonEvents.js"
+import { handleClickButton, handleSwitchThemeColor } from "./buttonEvents.js"
 
 // Eventos de entrada de teclado da calculadora
 import { numberMaskInput, handleKeyDown } from "./inputEvents.js"
 
 function buildOutput() {
   const container = document.createElement("div")
-  const result = document.createElement("small")
   const input = document.createElement("input")
-  
-  result.classList.add("result")
 
   input.id = "display"
   input.classList.add("display")
@@ -24,7 +21,6 @@ function buildOutput() {
   input.addEventListener("keydown", handleKeyDown)
   
   container.classList.add("output")
-  container.appendChild(result)
   container.appendChild(input)
   return container
 }
@@ -71,6 +67,7 @@ export function buildThemeButton() {
 
   container.id = "theme"
   container.setAttribute("type", "button")
+  container.addEventListener("click", handleSwitchThemeColor)
 
   themeData.forEach(item => {
     const { theme, isVisible, alt, src } = item
@@ -79,10 +76,6 @@ export function buildThemeButton() {
     icon.classList.add("icon", `--${theme}`)
     icon.setAttribute("alt", alt)
     icon.setAttribute("src", src)
-
-    if (isVisible) {
-      icon.classList.add("--is-visible")
-    }
 
     container.appendChild(icon)
   })

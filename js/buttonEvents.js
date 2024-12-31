@@ -21,11 +21,13 @@ export function handleUpdateContent(value) {
 	const content = display.value
 
 	if (content == "Erro") {
-		return display.value = value
+		display.value = value
+		return
 	}
 
 	if (!content && value.match(/[\/\*]/gi)) {
-		return display.value = ""
+		display.value = ""
+		return
 	}
 
 	display.value += value
@@ -41,7 +43,8 @@ export function handleDeleteContent() {
 	const content = display.value
 
 	if (!content || content == "Erro") {
-		return display.value = ""
+		display.value = ""
+		return
 	}
 
 	display.value = content.slice(0, content.length - 1)
@@ -53,7 +56,8 @@ export function handleSolveContent() {
 	let answer = ""
 
 	if (!content) {
-		return display.value = ""
+		display.value = ""
+		return
 	}
 
 	try { 
@@ -61,6 +65,41 @@ export function handleSolveContent() {
 	} catch { 
 		answer = "Erro"
 	} finally {
-		return display.value = answer
+		display.value = answer
 	}
+}
+
+function getCalculatorConfig() {
+	const config = JSON.parse(localStorage.getItem("calculator") || "{}")
+	return config
+} 
+
+function setCalculatorConfig(update) {
+	const config = getCalculatorConfig()
+	Object.assign(config, update)
+	localStorage.setItem("calculator", JSON.stringify(config))
+}
+
+export function handleSwitchThemeColor(event) {
+	const { target: { parentElement }} = event
+	const config = getCalculatorConfig()
+	const theme = config?.theme || "dark"
+	
+	if (theme == "dark") {
+		parentElement.classList.replace("--dark", "--light")
+		config.theme = "light"
+	}
+
+	if (theme == "light") {
+		parentElement.classList.replace("--light", "--dark")
+		config.theme = "dark"
+	}
+
+	setCalculatorConfig(config)
+}
+
+export function handleInitThemeColor() {
+	const config = getCalculatorConfig()
+	const theme = config?.theme || "dark"
+	return theme
 }
