@@ -1,0 +1,240 @@
+:root {
+	/* Cores primárias */
+	--primary-color-1: #000000;
+	--primary-color-2: #252525;
+	--primary-color-3: #343434;
+	--primary-color-4: #808080;
+	--primary-color-5: #A5A5A5;
+	--primary-color-6: #ebebeb;
+	--primary-color-7: #ffffff;
+	/* Cores secundárias */
+	--secondary-color-1: #b8762a;
+	--secondary-color-2: #f19a38;
+	--secondary-color-3: #be9073;
+	--secondary-color-4: #dba481;
+	/* Cores terciárias  */
+	--tertiary-color-1: #2e3257;
+	--tertiary-color-2: #41466e;
+	--tertiary-color-3: #68729c;
+	--tertiary-color-4: #8f9bcc;
+}
+
+/* Estilização do fundo */
+#main {
+	position: relative;
+	transition: background-color 800ms ease;
+}
+
+#main.--dark {
+	background-color: var(--primary-color-1);
+}
+
+#main.--light {
+	background-color: var(--primary-color-7);
+}
+
+/* Estilização do botão de troca de tema */
+#theme {
+	cursor: pointer;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	border: 0;
+	border-radius: 50%;
+	outline: none;
+	transition: background-color 800ms ease, border-color 800ms ease;
+}
+
+#theme:active {
+	top: 52px;
+}
+
+#main.--dark > #theme {
+	border-bottom: 6px solid var(--primary-color-4);
+	background-color: var(--primary-color-5);
+}
+
+#main.--dark > #theme:active {
+	border-bottom: 4px solid var(--primary-color-4);
+}
+
+#main.--light > #theme {
+	border-bottom: 6px solid var(--tertiary-color-3);
+	background-color: var(--tertiary-color-4);
+}
+
+#main.--light > #theme:active {
+	border-bottom: 4px solid var(--tertiary-color-3);
+}
+
+#theme > .icon {
+	pointer-events: none;
+	display: none;
+	width: 40px;
+	height: 40px;
+}
+
+#main.--dark > #theme > .icon.--dark { 
+	display: block;
+}
+
+#main.--light > #theme > .icon.--light { 
+	display: block;
+}
+
+/* Estilização do elemento da calculadora */
+#math {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	width: clamp(240px, 100%, 380px);
+	row-gap: 24px;
+}
+
+#math > .output {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+#math > .output > .result {
+	display: none;
+}
+
+#math > .output > .display {
+	align-self: center;
+	width: clamp(240px, 100%, 268px);
+	padding: 24px 16px 8px;
+	font-size: 56px;
+	border-radius: 8px;
+	outline: none;
+	border: 0;
+	transition: color 800ms ease, background-color 800ms ease;
+}
+
+#main.--dark > #math > .output > .display {
+	color: var(--primary-color-6);
+	background-color: var(--primary-color-3);
+}
+
+#main.--light > #math > .output > .display {
+	color: var(--primary-color-3);
+	background-color: var(--primary-color-6);
+}
+
+#math > .input {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	row-gap: 16px;
+}
+
+#math > .input > .row {
+	display: flex;
+	justify-content: center;
+	column-gap: 16px;
+}
+
+#math > .input > .row > .button {
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	font-size: 24px;
+	border-radius: 16px;
+	border: 0;
+	outline: none;
+}
+
+#math > .input > .row > .button > img {
+	pointer-events: none;
+}
+
+/* Botões de números da calculadora */
+#math > .input > .row > .button.--number {
+	transition: color 800ms ease, border-color 800ms ease, background-color 800ms ease;
+}
+
+#main.--dark > #math > .input > .row > .button.--number {
+	color: var(--primary-color-6);
+	border-bottom: 6px solid var(--primary-color-2);
+	background-color: var(--primary-color-3);
+}
+
+#main.--dark > #math > .input > .row > .button.--number:active {
+	top: 2px;
+	border-bottom: 4px solid var(--primary-color-2);
+}
+
+#main.--light > #math > .input > .row > .button.--number {
+	color: var(--primary-color-6);
+	border-bottom: 6px solid var(--tertiary-color-1);
+	background-color: var(--tertiary-color-2);
+}
+
+#main.--light > #math > .input > .row > .button.--number:active {
+	top: 2px;
+	border-bottom: 4px solid var(--tertiary-color-1);
+}
+
+/* Botões de opções da calculadora */
+#math > .input > .row > .button.--option {
+	transition: color 800ms ease, border-color 800ms ease, background-color 800ms ease;
+}
+
+#main.--dark > #math > .input > .row > .button.--option {
+	color: var(--primary-color-3);
+	border-bottom: 6px solid var(--primary-color-4);
+	background-color: var(--primary-color-5);
+}
+
+#main.--dark > #math > .input > .row > .button.--option:active {
+	top: 2px;
+	border-bottom: 4px solid var(--primary-color-4);
+}
+
+#main.--light > #math > .input > .row > .button.--option {
+	color: var(--primary-color-3);
+	border-bottom: 6px solid var(--tertiary-color-3);
+	background-color: var(--tertiary-color-4);
+}
+
+#main.--light > #math > .input > .row > .button.--option:active {
+	top: 2px;
+	border-bottom: 4px solid var(--tertiary-color-3);
+}
+
+/* Botões de operadores matemáticos da calculadora */
+#math > .input > .row > .button.--operator {
+	transition: color 800ms ease, border-color 800ms ease, background-color 800ms ease;
+}
+
+#main.--dark > #math > .input > .row > .button.--operator {
+	color: var(--primary-color-6);
+	border-bottom: 6px solid var(--secondary-color-1);
+	background-color: var(--secondary-color-2);
+}
+
+#main.--dark > #math > .input > .row > .button.--operator:active {
+	top: 2px;
+	border-bottom: 4px solid var(--secondary-color-1);
+}
+
+#main.--light > #math > .input > .row > .button.--operator {
+	color: var(--primary-color-6);
+	border-bottom: 6px solid var(--secondary-color-3);
+	background-color: var(--secondary-color-4);
+}
+
+#main.--light > #math > .input > .row > .button.--operator:active {
+	top: 2px;
+	border-bottom: 4px solid var(--secondary-color-3);
+}
