@@ -1,0 +1,43 @@
+/* Variáveis de cores da aplicação */
+
+:root {
+	/* Cores do modo claro */
+	--light-1: #eeeeee;
+	--light-2: #fafafa;
+	--light-3: #ffffff;
+
+	--light-color-1: #ef5350;
+	--light-color-2: #2597f3;
+
+	/* Cores do modo escuro */
+	--dark-1: #202128;
+	--dark-2: #262831;
+	--dark-3: #373940;
+
+	--dark-color-1: #e57373;
+	--dark-color-2: #9ddfff;
+}
+
+/* Variáveis de fontes da aplicação */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  src: url(../assets/fonts/Inconsolata/Inconsolata-Regular.ttf);
+	font-weight: 125 950;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+	font-weight: 400;
+  src: url(../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  src: url(../assets/fonts/Rubik/Rubik-VariableFont_wght.ttf);
+	font-weight: 125 950;
+  font-stretch: 75% 125%;
+}
