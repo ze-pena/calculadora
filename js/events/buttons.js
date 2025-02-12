@@ -80,8 +80,8 @@ function setCalculatorConfig(update) {
 	localStorage.setItem("calculator", JSON.stringify(config))
 }
 
-export function handleSwitchThemeColor(event) {
-	const { target: { parentElement }} = event
+export function handleSwitchThemeColor() {
+	const parentElement = document.getElementById("app")
 	const config = getCalculatorConfig()
 	const theme = config?.theme || "dark"
 	
